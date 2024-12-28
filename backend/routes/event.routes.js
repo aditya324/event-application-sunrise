@@ -1,16 +1,18 @@
 import express from "express";
-import { createEvent, deleteEvent, getAllEvents, updateEvent } from "../controller/event.controller.js";
-import { authMiddleware } from "../middleware/authMiddleware.js";
+import {
+  createEvent,
+  deleteEvent,
+  getAllEvents,
+  getEventById,
+  updateEvent,
+} from "../controller/event.controller.js";
 
-const router=express.Router();
+const router = express.Router();
 
+router.post("/create", createEvent);
+router.get("/getAll/:userId", getAllEvents);
+router.delete("/delete/:id", deleteEvent);
+router.get("/getById/:id", getEventById);
+router.post("/update", updateEvent);
 
-
-
-router.post("/create",authMiddleware,createEvent );
-router.get("/getAll",getAllEvents);
-router.delete("/delete/:id",authMiddleware,deleteEvent)
-router.post("/update",authMiddleware,updateEvent)
-
-
-export default router
+export default router;
