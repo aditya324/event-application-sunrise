@@ -1,6 +1,7 @@
 import express from "express";
 import path from "path";
 import  {loginUser, registerUser}  from "../controller/auth.controller.js";
+         
 
 
 
